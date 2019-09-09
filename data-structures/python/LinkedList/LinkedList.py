@@ -27,9 +27,9 @@ class LinkedList:
         else:
             new_node.next = self.head
             self.head = new_node
+
     def prepend(self, data):
         new_node = Node(data)
-        current = self.head
 
         if self.head:
             new_node.next = self.head
@@ -51,7 +51,6 @@ class LinkedList:
 
         current = self.head
         counter = 1
-        previous = None
 
         while current and counter != position:
             previous = current
@@ -60,12 +59,13 @@ class LinkedList:
         if current is None:
             print("position greater than num of elements")
             return 
-        new_node.next = current
-        previous.next = new_node 
+        new_node.next = current.next
+        current.next = new_node 
 
 ll = LinkedList()
 ll.insert_at_position(1, 0)
-ll.insert_at_position(2, 0)
-ll.insert_at_position(3, 0)
-ll.insert_at_position(4, 3)
+ll.insert_at_position(2, 1)
+ll.insert_at_position(3, 2)
+ll.append(4)
+ll.prepend(5)
 ll.display()
